@@ -1,6 +1,6 @@
 {
   "name": "ventipay",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "VENTI Pay API Wrapper",
   "main": "index.js",
   "repository": "https://github.com/VENTIPay/ventipay-node.git",
