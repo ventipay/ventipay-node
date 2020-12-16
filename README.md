@@ -1,2 +1,1 @@
-# ventipay-node
- 
+# VENTI Pay node.js Library
