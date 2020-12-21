@@ -1,12 +1,20 @@
 {
   "name": "ventipay",
   "version": "0.1.0",
-  "description": "VENTI Pay API Wrapper",
+  "description": "VENTI Pay Node.js library",
   "main": "index.js",
   "repository": "https://github.com/VENTIPay/ventipay-node.git",
+  "homepage": "https://docs.ventipay.com/",
+  "bugs": {
+    "url": "https://github.com/VENTIPay/ventipay-node/issues"
+  },
   "author": "VENTI Pay <help@ventipay.com> (https://www.ventipay.com)",
   "license": "MIT",
   "dependencies": {
     "axios": "0.21.0"
-  }
+  },
+  "devDependencies": {},
+  "keywords": [
+    "ventipay"
+  ]
 }
