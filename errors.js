@@ -8,6 +8,9 @@ class VENTIPayError extends Error {
     if (type === 'authentication_error') {
       return new VENTIPayAuthError();
     }
+    if (type === 'charge_error') {
+      return new VENTIPayChargeError();
+    }
     if (type === 'invalid_request_error') {
       if (code === 'not_found') {
         return new VENTIPayNotFoundError();
@@ -29,6 +32,8 @@ class VENTIPayError extends Error {
 
 class VENTIPayAuthError extends VENTIPayError { }
 
+class VENTIPayChargeError extends VENTIPayError { }
+
 class VENTIPayNotFoundError extends VENTIPayError { }
 
 class VENTIPayInvalidError extends VENTIPayError { }
@@ -44,6 +49,7 @@ class VENTIPayUnknownError extends VENTIPayError { }
 module.exports.generate = VENTIPayError.generate;
 module.exports.VENTIPayError = VENTIPayError;
 module.exports.VENTIPayAuthError = VENTIPayAuthError;
+module.exports.VENTIPayChargeError = VENTIPayChargeError;
 module.exports.VENTIPayNotFoundError = VENTIPayNotFoundError;
 module.exports.VENTIPayInvalidError = VENTIPayInvalidError;
 module.exports.VENTIPayRequestError = VENTIPayRequestError;

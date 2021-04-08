@@ -229,6 +229,42 @@ module.exports = [
         method: 'get',
         type: 'retrieveAll',
       },
+      {
+        name: 'create',
+        path: 'invoices',
+        method: 'post',
+        type: 'create',
+      },
+      {
+        name: 'update',
+        path: 'invoices/[0]',
+        method: 'put',
+        type: 'update',
+      },
+      {
+        name: 'finalize',
+        path: 'invoices/[0]/finalize',
+        method: 'post',
+        type: 'update',
+      },
+      {
+        name: 'pay',
+        path: 'invoices/[0]/pay',
+        method: 'post',
+        type: 'update',
+      },
+      {
+        name: 'markUncollectible',
+        path: 'invoices/[0]/mark-uncollectible',
+        method: 'post',
+        type: 'update',
+      },
+      {
+        name: 'void',
+        path: 'invoices/[0]/void',
+        method: 'post',
+        type: 'update',
+      },
     ],
   },
 ];

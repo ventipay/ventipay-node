@@ -113,7 +113,7 @@ const ventipay = require('@ventipay/ventipay')('key_test_...'); // Provide your 
 | [customers](../api-resources/customers.md) | `retrieve`, `list`, `update` |
 | [products](../api-resources/products.md) | `retrieve`, `list`, `create`, `update` |
 | [tax_rates](../api-resources/tax-rates.md) | `retrieve`, `list`, `create`, `update`, `del` |
-| invoices | `retrieve`, `list` |
+| invoices | `retrieve`, `list`, `create`, `update`, `finalize`, `pay`, `markUncollectible`, `void` |
 | bank_accounts | `list`, `create`, `del` |
 
 ## License
