@@ -254,6 +254,12 @@ module.exports = [
         type: 'update',
       },
       {
+        name: 'send',
+        path: 'invoices/[0]/send',
+        method: 'post',
+        type: 'update',
+      },
+      {
         name: 'markUncollectible',
         path: 'invoices/[0]/mark-uncollectible',
         method: 'post',

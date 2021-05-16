@@ -1,6 +1,6 @@
-# VENTI Pay Node.js library
+# VentiPay Node.js library
 
-This library provides convenient access to VENTI Pay's REST API from Node.js server-side applications.
+This library provides convenient access to VentiPay's REST API from Node.js server-side applications.
 
 ## Requirements
 
@@ -12,7 +12,7 @@ We use [SemVer](https://semver.org) for versioning, so you can safely update min
 
 ## Changelog
 
-We use GitHub's [release page](https://github.com/VENTIPay/ventipay-node/releases) to document each release changes.
+We use GitHub's [release page](https://github.com/ventipay/ventipay-node/releases) to document each release changes.
 
 ## Installation
 
@@ -113,7 +113,7 @@ const ventipay = require('@ventipay/ventipay')('key_test_...'); // Provide your 
 | [customers](../api-resources/customers.md) | `retrieve`, `list`, `update` |
 | [products](../api-resources/products.md) | `retrieve`, `list`, `create`, `update` |
 | [tax_rates](../api-resources/tax-rates.md) | `retrieve`, `list`, `create`, `update`, `del` |
-| invoices | `retrieve`, `list`, `create`, `update`, `finalize`, `pay`, `markUncollectible`, `void` |
+| invoices | `retrieve`, `list`, `create`, `update`, `finalize`, `pay`, `send`, `markUncollectible`, `void` |
 | bank_accounts | `list`, `create`, `del` |
 
 ## License

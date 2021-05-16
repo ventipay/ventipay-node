@@ -1,4 +1,4 @@
-class VENTIPayError extends Error {
+class VentiPayError extends Error {
   constructor(...params) {
     super(params);
     this.name = this.constructor.name;
@@ -6,53 +6,53 @@ class VENTIPayError extends Error {
 
   static generate({ type, code } = {}) {
     if (type === 'authentication_error') {
-      return new VENTIPayAuthError();
+      return new VentiPayAuthError();
     }
     if (type === 'charge_error') {
-      return new VENTIPayChargeError();
+      return new VentiPayChargeError();
     }
     if (type === 'invalid_request_error') {
       if (code === 'not_found') {
-        return new VENTIPayNotFoundError();
+        return new VentiPayNotFoundError();
       }
-      return new VENTIPayInvalidError();
+      return new VentiPayInvalidError();
     }
     if (type === 'request_error') {
-      return new VENTIPayRequestError();
+      return new VentiPayRequestError();
     }
     if (type === 'idempotency_error') {
-      return new VENTIPayIdempotencyError();
+      return new VentiPayIdempotencyError();
     }
     if (type === 'rate_limit_error') {
-      return new VENTIPayRateLimitError();
+      return new VentiPayRateLimitError();
     }
-    return new VENTIPayUnknownError();
+    return new VentiPayUnknownError();
   }
 }
 
-class VENTIPayAuthError extends VENTIPayError { }
+class VentiPayAuthError extends VentiPayError { }
 
-class VENTIPayChargeError extends VENTIPayError { }
+class VentiPayChargeError extends VentiPayError { }
 
-class VENTIPayNotFoundError extends VENTIPayError { }
+class VentiPayNotFoundError extends VentiPayError { }
 
-class VENTIPayInvalidError extends VENTIPayError { }
+class VentiPayInvalidError extends VentiPayError { }
 
-class VENTIPayRequestError extends VENTIPayError { }
+class VentiPayRequestError extends VentiPayError { }
 
-class VENTIPayIdempotencyError extends VENTIPayError { }
+class VentiPayIdempotencyError extends VentiPayError { }
 
-class VENTIPayRateLimitError extends VENTIPayError { }
+class VentiPayRateLimitError extends VentiPayError { }
 
-class VENTIPayUnknownError extends VENTIPayError { }
+class VentiPayUnknownError extends VentiPayError { }
 
-module.exports.generate = VENTIPayError.generate;
-module.exports.VENTIPayError = VENTIPayError;
-module.exports.VENTIPayAuthError = VENTIPayAuthError;
-module.exports.VENTIPayChargeError = VENTIPayChargeError;
-module.exports.VENTIPayNotFoundError = VENTIPayNotFoundError;
-module.exports.VENTIPayInvalidError = VENTIPayInvalidError;
-module.exports.VENTIPayRequestError = VENTIPayRequestError;
-module.exports.VENTIPayIdempotencyError = VENTIPayIdempotencyError;
-module.exports.VENTIPayRateLimitError = VENTIPayRateLimitError;
-module.exports.VENTIPayUnknownError = VENTIPayUnknownError;
+module.exports.generate = VentiPayError.generate;
+module.exports.VentiPayError = VentiPayError;
+module.exports.VentiPayAuthError = VentiPayAuthError;
+module.exports.VentiPayChargeError = VentiPayChargeError;
+module.exports.VentiPayNotFoundError = VentiPayNotFoundError;
+module.exports.VentiPayInvalidError = VentiPayInvalidError;
+module.exports.VentiPayRequestError = VentiPayRequestError;
+module.exports.VentiPayIdempotencyError = VentiPayIdempotencyError;
+module.exports.VentiPayRateLimitError = VentiPayRateLimitError;
+module.exports.VentiPayUnknownError = VentiPayUnknownError;

@@ -18,12 +18,12 @@ const DEFAULT_SCHEMA = 'https:';
 /**
  * Main Component
  */
-function VENTIPay(apiKey, config = {}) {
+function VentiPay(apiKey, config = {}) {
   /**
    * Bootstrap
    */
-  if (!(this instanceof VENTIPay)) {
-    return new VENTIPay(apiKey, config);
+  if (!(this instanceof VentiPay)) {
+    return new VentiPay(apiKey, config);
   }
   const self = this;
 
@@ -33,7 +33,7 @@ function VENTIPay(apiKey, config = {}) {
   const api = axios.create({
     baseURL: `${config.schema || DEFAULT_SCHEMA}//${config.host || DEFAULT_HOST}:${config.host || DEFAULT_PORT}${DEFAULT_BASE_PATH}`,
     headers: {
-      'User-Agent': `VENTIPaySDK/nodejs/${VERSION}`,
+      'User-Agent': `VentiPaySDK/nodejs/${VERSION}`,
     },
     auth: {
       username: apiKey,
@@ -104,4 +104,4 @@ function VENTIPay(apiKey, config = {}) {
 /**
  * Export
  */
-module.exports = VENTIPay;
+module.exports = VentiPay;
