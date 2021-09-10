@@ -1,7 +1,7 @@
 {
   "name": "@ventipay/ventipay",
   "version": "1.1.1",
-  "description": "VentiPay Node.js library",
+  "description": "Venti Node.js library",
   "main": "index.js",
   "repository": "https://github.com/ventipay/ventipay-node.git",
   "homepage": "https://www.ventipay.com/",
@@ -11,7 +11,7 @@
   "author": "VentiPay <help@ventipay.com> (https://www.ventipay.com)",
   "license": "MIT",
   "dependencies": {
-    "axios": "0.21.1"
+    "axios": "0.21.4"
   },
   "devDependencies": {},
   "keywords": [
