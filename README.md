@@ -1,6 +1,6 @@
-# VentiPay Node.js library
+# Venti Node.js library
 
-This library provides convenient access to VentiPay's REST API from Node.js server-side applications.
+This library provides convenient access to Venti's REST API from Node.js server-side applications.
 
 ## Requirements
 
@@ -107,12 +107,13 @@ const ventipay = require('@ventipay/ventipay')('key_test_...'); // Provide your 
 
 | Resource | Methods |
 | ------ | ------ |
-| [payments](../api-resources/payments.md) | `retrieve`, `list`, `create`, `update`, `refund`, `capture` |
-| [plans](../api-resources/plans.md) | `retrieve`, `list`, `create`, `update` |
-| [subscriptions](../api-resources/products.md) | `retrieve`, `list`, `create`, `update`, `cancel` |
-| [customers](../api-resources/customers.md) | `retrieve`, `list`, `update` |
-| [products](../api-resources/products.md) | `retrieve`, `list`, `create`, `update` |
-| [tax_rates](../api-resources/tax-rates.md) | `retrieve`, `list`, `create`, `update`, `del` |
+| loan_intents | `retrieve`, `list`, `create`, `authorize` |
+| payments | `retrieve`, `list`, `create`, `update`, `refund`, `capture` |
+| plans | `retrieve`, `list`, `create`, `update` |
+| subscriptions | `retrieve`, `list`, `create`, `update`, `cancel` |
+| customers | `retrieve`, `list`, `update` |
+| products | `retrieve`, `list`, `create`, `update` |
+| tax_rates | `retrieve`, `list`, `create`, `update`, `del` |
 | invoices | `retrieve`, `list`, `create`, `update`, `finalize`, `pay`, `send`, `markUncollectible`, `void` |
 | bank_accounts | `list`, `create`, `del` |
 
