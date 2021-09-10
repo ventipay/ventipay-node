@@ -273,4 +273,33 @@ module.exports = [
       },
     ],
   },
+  {
+    name: 'loan_intents',
+    methods: [
+      {
+        name: 'retrieve',
+        path: 'loan-intents/[0]',
+        method: 'get',
+        type: 'retrieveOne',
+      },
+      {
+        name: 'list',
+        path: 'loan-intents',
+        method: 'get',
+        type: 'retrieveAll',
+      },
+      {
+        name: 'create',
+        path: 'loan-intents',
+        method: 'post',
+        type: 'create',
+      },
+      {
+        name: 'authorize',
+        path: 'loan-intents/[0]/authorize',
+        method: 'post',
+        type: 'update',
+      },
+    ],
+  },
 ];
