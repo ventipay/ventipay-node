@@ -1,8 +1,8 @@
 {
   "name": "@ventipay/ventipay",
   "version": "1.2.0",
-  "description": "Venti Node.js library",
-  "main": "index.js",
+  "description": "VentiPay Node.js library",
+  "main": "src/index.js",
   "repository": "https://github.com/ventipay/ventipay-node.git",
   "homepage": "https://www.ventipay.com/",
   "bugs": {
@@ -10,10 +10,17 @@
   },
   "author": "VentiPay <help@ventipay.com> (https://www.ventipay.com)",
   "license": "MIT",
-  "dependencies": {
-    "axios": "0.21.4"
+  "scripts": {
+    "lint": "eslint src/*"
   },
-  "devDependencies": {},
+  "dependencies": {
+    "axios": "1.4.0"
+  },
+  "devDependencies": {
+    "eslint": "8.41.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-plugin-import": "2.27.5"
+  },
   "keywords": [
     "ventipay"
   ]

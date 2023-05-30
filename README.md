@@ -1,6 +1,6 @@
-# Venti Node.js library
+# VentiPay Node.js library
 
-This library provides convenient access to Venti's REST API from Node.js server-side applications.
+This library provides convenient access to VentiPay's REST API from Node.js server-side applications.
 
 ## Requirements
 
@@ -32,44 +32,11 @@ yarn add @ventipay/ventipay
 
 To start you need to configure the library with your API Key. You can get one in your [Dashboard](https://dashboard.ventipay.com/).
 
-Remember that API Keys can be used in [live or test mode](https://docs.ventipay.com/api/modes).
+Remember that API Keys can be used in [live or test mode](https://docs.ventipay.com/reference/modes).
 
 ### Promises
 
 Provided methods return Promises, meaning you can chain them with `then` and `catch` or use `async/await`.
-
-### Example using Promises
-
-```javascript
-// Load the library and configure your API Key
-const ventipay = require('@ventipay/ventipay')('key_test_...'); // Provide your live or test API Key
-
-  // Create a new payment
-  // Create methods usually require a config object as first argument
-  ventipay.payments.create({
-    amount: 1000,
-    currency: 'clp',
-  })
-  .then((payment) => {
-    console.log(payment.id); // Should print the new Payment ID
-  });
-
-  // Retrieve an existing payment
-  // Retrieve methods usually require the ID of the object as first argument
-  ventipay.payments.retrieve('pay_...')
-  .then((checkPayment) => {
-    console.log(checkPayment.id) // Should print the existing Payment ID (if found)
-  });
-
-  // Update an existing payment
-  // Update methods usually require the ID of the object as first argument and a config object as second argument
-  ventipay.payments.update('pay_...', {
-    description: 'My payment info...',
-  })
-  .then((updatedPayment) => {
-    console.log(updatedPayment.id); // Should print the updated Payment ID
-  });
-```
 
 ### Example using async/await
 
@@ -107,15 +74,16 @@ const ventipay = require('@ventipay/ventipay')('key_test_...'); // Provide your 
 
 | Resource | Methods |
 | ------ | ------ |
-| loan_intents | `retrieve`, `list`, `create`, `authorize` |
-| payments | `retrieve`, `list`, `create`, `update`, `refund`, `capture` |
+| checkouts | `retrieve`, `list`, `create`, `refund` |
+| subscriptions | `retrieve`, `list`, `create`, `update`, `cancel`, `suspend`, `unsuspend` |
 | plans | `retrieve`, `list`, `create`, `update` |
-| subscriptions | `retrieve`, `list`, `create`, `update`, `cancel` |
-| customers | `retrieve`, `list`, `update` |
+| invoices | `retrieve`, `list`, `create`, `update`, `finalize`, `pay`, `send`, `markUncollectible`, `void` |
 | products | `retrieve`, `list`, `create`, `update` |
 | tax_rates | `retrieve`, `list`, `create`, `update`, `del` |
-| invoices | `retrieve`, `list`, `create`, `update`, `finalize`, `pay`, `send`, `markUncollectible`, `void` |
+| customers | `retrieve`, `list`, `update` |
 | bank_accounts | `list`, `create`, `del` |
+| loan_intents | `retrieve`, `list`, `create`, `authorize` |
+| payments | `retrieve`, `list`, `create`, `update`, `refund`, `capture` |
 
 ## License
 

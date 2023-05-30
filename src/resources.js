@@ -1,5 +1,34 @@
 module.exports = [
   {
+    name: 'checkouts',
+    methods: [
+      {
+        name: 'retrieve',
+        path: 'checkouts/[0]',
+        method: 'get',
+        type: 'retrieveOne',
+      },
+      {
+        name: 'list',
+        path: 'checkouts',
+        method: 'get',
+        type: 'retrieveAll',
+      },
+      {
+        name: 'create',
+        path: 'checkouts',
+        method: 'post',
+        type: 'create',
+      },
+      {
+        name: 'refund',
+        path: 'checkouts/[0]/refund',
+        method: 'post',
+        type: 'update',
+      },
+    ],
+  },
+  {
     name: 'payments',
     methods: [
       {
@@ -101,6 +130,18 @@ module.exports = [
         path: 'subscriptions/[0]',
         method: 'delete',
         type: 'delete',
+      },
+      {
+        name: 'suspend',
+        path: 'subscriptions/[0]',
+        method: 'post',
+        type: 'update',
+      },
+      {
+        name: 'unsuspend',
+        path: 'subscriptions/[0]',
+        method: 'post',
+        type: 'update',
       },
     ],
   },
