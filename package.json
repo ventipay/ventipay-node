@@ -1,6 +1,6 @@
 {
   "name": "@ventipay/ventipay",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "VentiPay Node.js library",
   "main": "src/index.js",
   "repository": "https://github.com/ventipay/ventipay-node.git",
