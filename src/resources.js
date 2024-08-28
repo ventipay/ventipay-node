@@ -70,6 +70,23 @@ module.exports = [
     ],
   },
   {
+    name: 'refunds',
+    methods: [
+      {
+        name: 'retrieve',
+        path: 'refunds/[0]',
+        method: 'get',
+        type: 'retrieveOne',
+      },
+      {
+        name: 'list',
+        path: 'refunds',
+        method: 'get',
+        type: 'retrieveAll',
+      },
+    ],
+  },
+  {
     name: 'plans',
     methods: [
       {
@@ -161,6 +178,12 @@ module.exports = [
         type: 'retrieveAll',
       },
       {
+        name: 'create',
+        path: 'customers',
+        method: 'post',
+        type: 'create',
+      },
+      {
         name: 'update',
         path: 'customers/[0]',
         method: 'put',
@@ -202,31 +225,31 @@ module.exports = [
     methods: [
       {
         name: 'retrieve',
-        path: 'tax-rates/[0]',
+        path: 'tax_rates/[0]',
         method: 'get',
         type: 'retrieveOne',
       },
       {
         name: 'list',
-        path: 'tax-rates',
+        path: 'tax_rates',
         method: 'get',
         type: 'retrieveAll',
       },
       {
         name: 'create',
-        path: 'tax-rates',
+        path: 'tax_rates',
         method: 'post',
         type: 'create',
       },
       {
         name: 'update',
-        path: 'tax-rates/[0]',
+        path: 'tax_rates/[0]',
         method: 'put',
         type: 'update',
       },
       {
         name: 'del',
-        path: 'tax-rates/[0]',
+        path: 'tax_rates/[0]',
         method: 'delete',
         type: 'delete',
       },
@@ -237,19 +260,19 @@ module.exports = [
     methods: [
       {
         name: 'list',
-        path: 'bank-accounts',
+        path: 'bank_accounts',
         method: 'get',
         type: 'retrieveAll',
       },
       {
         name: 'create',
-        path: 'bank-accounts',
+        path: 'bank_accounts',
         method: 'post',
         type: 'create',
       },
       {
         name: 'del',
-        path: 'bank-accounts/[0]',
+        path: 'bank_accounts/[0]',
         method: 'delete',
         type: 'delete',
       },
@@ -340,6 +363,103 @@ module.exports = [
         path: 'loan-intents/[0]/authorize',
         method: 'post',
         type: 'update',
+      },
+    ],
+  },
+  {
+    name: 'setup_intents',
+    methods: [
+      {
+        name: 'retrieve',
+        path: 'setup_intents/[0]',
+        method: 'get',
+        type: 'retrieveOne',
+      },
+      {
+        name: 'create',
+        path: 'setup_intents',
+        method: 'post',
+        type: 'create',
+      },
+      {
+        name: 'update',
+        path: 'setup_intents/[0]',
+        method: 'put',
+        type: 'update',
+      },
+      {
+        name: 'del',
+        path: 'setup_intents/[0]',
+        method: 'delete',
+        type: 'delete',
+      },
+    ],
+  },
+  {
+    name: 'payment_methods',
+    methods: [
+      {
+        name: 'retrieve',
+        path: 'payment_methods/[0]',
+        method: 'get',
+        type: 'retrieveOne',
+      },
+      {
+        name: 'list',
+        path: 'payment_methods',
+        method: 'get',
+        type: 'retrieveAll',
+      },
+    ],
+  },
+  {
+    name: 'events',
+    methods: [
+      {
+        name: 'retrieve',
+        path: 'events/[0]',
+        method: 'get',
+        type: 'retrieveOne',
+      },
+      {
+        name: 'list',
+        path: 'events',
+        method: 'get',
+        type: 'retrieveAll',
+      },
+    ],
+  },
+  {
+    name: 'balance_transactions',
+    methods: [
+      {
+        name: 'retrieve',
+        path: 'balance_transactions/[0]',
+        method: 'get',
+        type: 'retrieveOne',
+      },
+      {
+        name: 'list',
+        path: 'balance_transactions',
+        method: 'get',
+        type: 'retrieveAll',
+      },
+    ],
+  },
+  {
+    name: 'payouts',
+    methods: [
+      {
+        name: 'retrieve',
+        path: 'payouts/[0]',
+        method: 'get',
+        type: 'retrieveOne',
+      },
+      {
+        name: 'list',
+        path: 'payouts',
+        method: 'get',
+        type: 'retrieveAll',
       },
     ],
   },
