@@ -259,6 +259,12 @@ module.exports = [
     name: 'bank_accounts',
     methods: [
       {
+        name: 'retrieve',
+        path: 'bank_accounts/[0]',
+        method: 'get',
+        type: 'retrieveOne',
+      },
+      {
         name: 'list',
         path: 'bank_accounts',
         method: 'get',
@@ -338,29 +344,29 @@ module.exports = [
     ],
   },
   {
-    name: 'loan_intents',
+    name: 'loans',
     methods: [
       {
         name: 'retrieve',
-        path: 'loan-intents/[0]',
+        path: 'loans/[0]',
         method: 'get',
         type: 'retrieveOne',
       },
       {
         name: 'list',
-        path: 'loan-intents',
+        path: 'loans',
         method: 'get',
         type: 'retrieveAll',
       },
       {
         name: 'create',
-        path: 'loan-intents',
+        path: 'loans',
         method: 'post',
         type: 'create',
       },
       {
         name: 'authorize',
-        path: 'loan-intents/[0]/authorize',
+        path: 'loans/[0]/authorize',
         method: 'post',
         type: 'update',
       },
