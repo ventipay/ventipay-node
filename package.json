@@ -1,14 +1,14 @@
 {
   "name": "@ventipay/ventipay",
   "version": "1.4.0",
-  "description": "Librería oficial de VentiPay para Node.js",
+  "description": "Librería oficial de Venti para Node.js",
   "main": "src/index.js",
   "repository": "https://github.com/ventipay/ventipay-node.git",
   "homepage": "https://ventipay.com/",
   "bugs": {
     "url": "https://github.com/ventipay/ventipay-node/issues"
   },
-  "author": "VentiPay <help@ventipay.com> (https://ventipay.com)",
+  "author": "Venti <help@ventipay.com> (https://ventipay.com)",
   "license": "MIT",
   "scripts": {
     "lint": "eslint src/*"
@@ -22,6 +22,7 @@
     "eslint-plugin-import": "2.27.5"
   },
   "keywords": [
+    "venti",
     "ventipay"
   ]
 }
