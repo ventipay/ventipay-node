@@ -52,12 +52,19 @@ Estas opciones corresponden a los *query params* o *body params* encontrados en 
 | [payments](https://docs.ventipay.com/reference/payments) | `retrieve`, `list`, `create`, `update`, `refund`, `capture` |
 | [refunds](https://docs.ventipay.com/reference/refunds) | `retrieve`, `list` |
 
+### API Préstamos
+| Recurso | Métodos |
+| ------ | ------ |
+| [loans](https://docs.ventipay.com/reference/loans) | `retrieve`, `list`, `create`, `update`, `refund`, `capture` |
+
 ### API Suscripciones
 | Recurso | Métodos |
 | ------ | ------ |
 | [subscriptions](https://docs.ventipay.com/reference/subscriptions) | `retrieve`, `list`, `create`, `update`, `cancel`, `suspend`, `unsuspend` |
 | [invoices](https://docs.ventipay.com/reference/invoices) | `retrieve`, `list`, `create`, `update`, `finalize`, `pay`, `send`, `markUncollectible`, `void` |
 | [products](https://docs.ventipay.com/reference/products) | `retrieve`, `list`, `create`, `update` |
+| [tax_rates](https://docs.ventipay.com/reference/tax_rates) | `retrieve`, `list`, `create`, `update` |
+| [plans](https://docs.ventipay.com/reference/plans) | `retrieve`, `list`, `create`, `update` |
 
 ### API Clientes
 | Recurso | Métodos |
@@ -79,6 +86,8 @@ Estas opciones corresponden a los *query params* o *body params* encontrados en 
 | Recurso | Métodos |
 | ------ | ------ |
 | [balance_transactions](https://docs.ventipay.com/reference/balance_transactions) | `retrieve`, `list` |
+| [bank_accounts](https://docs.ventipay.com/reference/bank_accounts) | `retrieve`, `list`, `create`, `del` |
+
 | [payouts](https://docs.ventipay.com/reference/payouts) | `retrieve`, `list` |
 
 # Promesas
