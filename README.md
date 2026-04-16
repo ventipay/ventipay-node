@@ -1,89 +1,97 @@
-# VentiPay Node.js library
+# Librería oficial de VentiPay para Node.js
+Esta librería provee un acceso conveniente a la API REST de VentiPay para aplicaciones Node.js.
 
-This library provides convenient access to VentiPay's REST API from Node.js server-side applications.
-
-## Requirements
-
-Node.js 12+.
-
-## Versioning
-
-We use [SemVer](https://semver.org) for versioning, so you can safely update minor and patch releases regularly.
-
-## Changelog
-
-We use GitHub's [release page](https://github.com/ventipay/ventipay-node/releases) to document each release changes.
-
-## Installation
-
-Install the library using your favourite package manager.
-
+# Instalación
+Instala la librería utilizando tu package manager favorito.
 ```bash
 npm install @ventipay/ventipay
-
-# or
-
+# o
 yarn add @ventipay/ventipay
 ```
+**Nota:** La librería requiere Node.js 12+.
 
-## Usage
+# Uso
+La idea de esta librería es reflejar lo más posible el diseño de nuestra [API](https://docs.ventipay.com/) para que, sólo leyendo su [documentación](https://docs.ventipay.com/), puedas entenderla y utilizarla de manera rápida y simple.
 
-### API Keys
+Por cada recurso disponible en la API encontrarás un recurso en esta librería y por cada uno de estos recursos encontrarás acciones a ejecutar sobre ellos.
 
-To start you need to configure the library with your API Key. You can get one in your [Dashboard](https://dashboard.ventipay.com/).
-
-Remember that API Keys can be used in [live or test mode](https://docs.ventipay.com/reference/modes).
-
-### Promises
-
-Provided methods return Promises, meaning you can chain them with `then` and `catch` or use `async/await`.
-
-### Example using async/await
+## Inicio
+El primer paso es requerir la librería y pasarle tu API Key. Puedes obtener una API Key en el [Dashboard](https://dashboard.ventipay.com/) de VentiPay y recuerda que esta puede ser usada en modo [live o test](https://docs.ventipay.com/reference/modes).
 
 ```javascript
-// Load the library and configure your API Key
-const ventipay = require('@ventipay/ventipay')('key_test_...'); // Provide your live or test API Key
+// Requiere la librería y crea el cliente de VentiPay
+const ventipay = require('@ventipay/ventipay')('key_test_...'); // Provee tu API Key de modo live o test como primer parámetro del cliente
+```
+Ya puedes utilizar la librería y ejecutar acciones sobre los recursos de la API.
 
-(async () => {
-  // Create a new payment
-  // Create methods usually require a config object as first argument
-  const payment = await ventipay.payments.create({
-    amount: 1000,
-    currency: 'clp',
-  });
+## Recursos y acciones
+La librería ahora te entrega un listado de recursos de la API con sus respectivas acciones. Un recurso se ve reflejado como una propiedad del cliente recién creado y cada acción como un método asociado a esta propiedad.
 
-  console.log(payment.id); // Should print the new Payment ID
+### Ejemplo
+```javascript
+// Llamando al método retrieve del recurso checkouts y pasando 2 parámetros.
+const checkout = ventipay.checkouts.retrieve('chk_KaIq81HaHvaPq91c8FaK1ua6R', {
+    expand: ['customer'],
+});
 
-  // Retrieve an existing payment
-  // Retrieve methods usually require the ID of the object as first argument
-  const checkPayment = await ventipay.payments.retrieve('pay_...');
-
-  console.log(checkPayment.id) // Should print the existing Payment ID (if found)
-
-  // Update an existing payment
-  // Update methods usually require the ID of the object as first argument and a config object as second argument
-  const updatedPayment = await ventipay.payments.update('pay_...', {
-    description: 'My payment info...',
-  })
-
-  console.log(updatedPayment.id); // Should print the updated Payment ID
-})();
+// Imprimiendo el atributo id
+console.log(checkout.id);
 ```
 
-### Available Resources
+En este ejemplo se accede al recurso **checkouts** y al método **retrieve**. El método recibe 2 parámetros: el ID del recurso a obtener y el atributo opcional *expand*. Finalmente, se imprime el atributo *id* del recurso obtenido.
 
-| Resource | Methods |
+Usualmente los métodos que obtienen o actualizan un recurso (`create`, `update`, etc.) reciben un ID como primer parámetro y opciones como segundo parámetro, en cambio los métodos que listan recursos (`list`) reciben opciones como primer parámetro.
+
+Estas opciones corresponden a los *query params* o *body params* encontrados en la documentación de la API.
+
+## Listado de recursos
+### API Pagos
+| Recurso | Métodos |
 | ------ | ------ |
-| checkouts | `retrieve`, `list`, `create`, `refund` |
-| subscriptions | `retrieve`, `list`, `create`, `update`, `cancel`, `suspend`, `unsuspend` |
-| plans | `retrieve`, `list`, `create`, `update` |
-| invoices | `retrieve`, `list`, `create`, `update`, `finalize`, `pay`, `send`, `markUncollectible`, `void` |
-| products | `retrieve`, `list`, `create`, `update` |
-| tax_rates | `retrieve`, `list`, `create`, `update`, `del` |
-| customers | `retrieve`, `list`, `update` |
-| bank_accounts | `list`, `create`, `del` |
-| loan_intents | `retrieve`, `list`, `create`, `authorize` |
-| payments | `retrieve`, `list`, `create`, `update`, `refund`, `capture` |
+| [checkouts](https://docs.ventipay.com/reference/checkouts) | `retrieve`, `list`, `create`, `refund` |
+| [payments](https://docs.ventipay.com/reference/payments) | `retrieve`, `list`, `create`, `update`, `refund`, `capture` |
+| [refunds](https://docs.ventipay.com/reference/refunds) | `retrieve`, `list` |
+
+### API Suscripciones
+| Recurso | Métodos |
+| ------ | ------ |
+| [subscriptions](https://docs.ventipay.com/reference/subscriptions) | `retrieve`, `list`, `create`, `update`, `cancel`, `suspend`, `unsuspend` |
+| [invoices](https://docs.ventipay.com/reference/invoices) | `retrieve`, `list`, `create`, `update`, `finalize`, `pay`, `send`, `markUncollectible`, `void` |
+| [products](https://docs.ventipay.com/reference/products) | `retrieve`, `list`, `create`, `update` |
+
+### API Clientes
+| Recurso | Métodos |
+| ------ | ------ |
+| [customers](https://docs.ventipay.com/reference/customers) | `retrieve`, `list`, `create`, `update` |
+
+### API Métodos de pago
+| Recurso | Métodos |
+| ------ | ------ |
+| [payment_methods](https://docs.ventipay.com/reference/payment_methods) | `retrieve`, `list` |
+| [setup_intents](https://docs.ventipay.com/reference/setup_intents) | `retrieve`, `create`, `update`, `del` |
+
+### API Eventos
+| Recurso | Métodos |
+| ------ | ------ |
+| [events](https://docs.ventipay.com/reference/events) | `retrieve`, `list` |
+
+### API Finanzas
+| Recurso | Métodos |
+| ------ | ------ |
+| [balance_transactions](https://docs.ventipay.com/reference/balance_transactions) | `retrieve`, `list` |
+| [payouts](https://docs.ventipay.com/reference/payouts) | `retrieve`, `list` |
+
+# Promesas
+
+Los métodos provistos por la librería retornan siempre una Promesa (`Promise`), por lo que puedes utilizar `async/await` o `then/catch` según tu preferencia.
+
+# Versionamiento
+
+Utilizamos [SemVer](https://semver.org) para el versionamiento, por lo que puedes actualizar de manera segura cambios a nivel *minor* y *patch*.
+
+# Changelog
+
+Utilizamos la [página de releases](https://github.com/ventipay/ventipay-node/releases) de GitHub para documentar cada release.
 
 ## License
 
