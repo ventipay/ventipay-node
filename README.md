@@ -48,47 +48,68 @@ Estas opciones corresponden a los *query params* o *body params* encontrados en 
 ### API Pagos
 | Recurso | Métodos |
 | ------ | ------ |
-| [checkouts](https://docs.ventipay.com/reference/checkouts) | `retrieve`, `list`, `create`, `refund` |
-| [payments](https://docs.ventipay.com/reference/payments) | `retrieve`, `list`, `create`, `update`, `refund`, `capture` |
+| [checkouts](https://docs.ventipay.com/reference/checkouts) | `retrieve`, `list`, `create`, `refund`, `cancel` |
+| [payments](https://docs.ventipay.com/reference/payments) | `retrieve`, `list`, `create`, `update`, `authorize`, `capture`, `refund`, `cancel` |
 | [refunds](https://docs.ventipay.com/reference/refunds) | `retrieve`, `list` |
-
-### API Préstamos
-| Recurso | Métodos |
-| ------ | ------ |
-| [loans](https://docs.ventipay.com/reference/loans) | `retrieve`, `list`, `create`, `update`, `refund`, `capture` |
+| [payment_buttons](https://docs.ventipay.com/reference/payment_buttons) | `retrieve`, `list`, `create`, `update` |
+| [coupons](https://docs.ventipay.com/reference/coupons) | `retrieve`, `list`, `create`, `update` |
 
 ### API Suscripciones
 | Recurso | Métodos |
 | ------ | ------ |
-| [subscriptions](https://docs.ventipay.com/reference/subscriptions) | `retrieve`, `list`, `create`, `update`, `cancel`, `suspend`, `unsuspend` |
-| [invoices](https://docs.ventipay.com/reference/invoices) | `retrieve`, `list`, `create`, `update`, `finalize`, `pay`, `send`, `markUncollectible`, `void` |
+| [subscriptions](https://docs.ventipay.com/reference/subscriptions) | `retrieve`, `list`, `create`, `update`, `start`, `end`, `suspend`, `unsuspend` |
+| [invoices](https://docs.ventipay.com/reference/invoices) | `retrieve`, `list`, `create`, `update`, `finalize`, `markUncollectible`, `void`, `pay`, `send` |
+| [plans](https://docs.ventipay.com/reference/plans) | `retrieve`, `list`, `create`, `update`, `subscribe` |
 | [products](https://docs.ventipay.com/reference/products) | `retrieve`, `list`, `create`, `update` |
 | [tax_rates](https://docs.ventipay.com/reference/tax_rates) | `retrieve`, `list`, `create`, `update` |
-| [plans](https://docs.ventipay.com/reference/plans) | `retrieve`, `list`, `create`, `update` |
 
 ### API Clientes
 | Recurso | Métodos |
 | ------ | ------ |
-| [customers](https://docs.ventipay.com/reference/customers) | `retrieve`, `list`, `create`, `update` |
+| [customers](https://docs.ventipay.com/reference/customers) | `retrieve`, `list`, `create`, `update`, `paymentMethods` |
+| [mandates](https://docs.ventipay.com/reference/mandates) | `retrieve`, `list` |
 
 ### API Métodos de pago
 | Recurso | Métodos |
 | ------ | ------ |
-| [payment_methods](https://docs.ventipay.com/reference/payment_methods) | `retrieve`, `list` |
-| [setup_intents](https://docs.ventipay.com/reference/setup_intents) | `retrieve`, `create`, `update`, `del` |
+| [payment_methods](https://docs.ventipay.com/reference/payment_methods) | `retrieve`, `list`, `del` |
+| [setup_intents](https://docs.ventipay.com/reference/setup_intents) | `retrieve`, `list`, `create`, `update`, `del`, `cancel` |
+
+### API Préstamos
+| Recurso | Métodos |
+| ------ | ------ |
+| [loans](https://docs.ventipay.com/reference/loans) | `retrieve`, `list`, `create`, `authorize`, `refund` |
+| [installments](https://docs.ventipay.com/reference/installments) | `retrieve`, `authorize` |
+
+### API Finanzas
+| Recurso | Métodos |
+| ------ | ------ |
+| [balance](https://docs.ventipay.com/reference/balance) | `retrieve`, `overview` |
+| [balance_transactions](https://docs.ventipay.com/reference/balance_transactions) | `retrieve`, `list` |
+| [payouts](https://docs.ventipay.com/reference/payouts) | `retrieve`, `list` |
+| [bank_accounts](https://docs.ventipay.com/reference/bank_accounts) | `retrieve`, `list`, `create`, `del` |
+
+### API Disputas
+| Recurso | Métodos |
+| ------ | ------ |
+| [disputes](https://docs.ventipay.com/reference/disputes) | `retrieve`, `list`, `upload`, `confirm` |
 
 ### API Eventos
 | Recurso | Métodos |
 | ------ | ------ |
 | [events](https://docs.ventipay.com/reference/events) | `retrieve`, `list` |
 
-### API Finanzas
+### API Webhooks
 | Recurso | Métodos |
 | ------ | ------ |
-| [balance_transactions](https://docs.ventipay.com/reference/balance_transactions) | `retrieve`, `list` |
-| [bank_accounts](https://docs.ventipay.com/reference/bank_accounts) | `retrieve`, `list`, `create`, `del` |
+| [webhooks](https://docs.ventipay.com/reference/webhooks) | `retrieve`, `list`, `create`, `del` |
+| [webhook_attempts](https://docs.ventipay.com/reference/webhook_attempts) | `list` |
 
-| [payouts](https://docs.ventipay.com/reference/payouts) | `retrieve`, `list` |
+### Otros
+| Recurso | Métodos |
+| ------ | ------ |
+| [banks](https://docs.ventipay.com/reference/banks) | `list` |
+| [currencies](https://docs.ventipay.com/reference/currencies) | `list` |
 
 # Promesas
 

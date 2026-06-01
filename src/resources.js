@@ -26,6 +26,12 @@ module.exports = [
         method: 'post',
         type: 'update',
       },
+      {
+        name: 'cancel',
+        path: 'checkouts/[0]/cancel',
+        method: 'post',
+        type: 'update',
+      },
     ],
   },
   {
@@ -56,14 +62,26 @@ module.exports = [
         type: 'update',
       },
       {
-        name: 'refund',
-        path: 'payments/[0]/refund',
+        name: 'authorize',
+        path: 'payments/[0]/authorize',
         method: 'post',
         type: 'update',
       },
       {
         name: 'capture',
         path: 'payments/[0]/capture',
+        method: 'post',
+        type: 'update',
+      },
+      {
+        name: 'refund',
+        path: 'payments/[0]/refund',
+        method: 'post',
+        type: 'update',
+      },
+      {
+        name: 'cancel',
+        path: 'payments/[0]/cancel',
         method: 'post',
         type: 'update',
       },
@@ -87,29 +105,58 @@ module.exports = [
     ],
   },
   {
-    name: 'plans',
+    name: 'payment_buttons',
     methods: [
       {
         name: 'retrieve',
-        path: 'plans/[0]',
+        path: 'payment_buttons/[0]',
         method: 'get',
         type: 'retrieveOne',
       },
       {
         name: 'list',
-        path: 'plans',
+        path: 'payment_buttons',
         method: 'get',
         type: 'retrieveAll',
       },
       {
         name: 'create',
-        path: 'plans',
+        path: 'payment_buttons',
         method: 'post',
         type: 'create',
       },
       {
         name: 'update',
-        path: 'plans/[0]',
+        path: 'payment_buttons/[0]',
+        method: 'put',
+        type: 'update',
+      },
+    ],
+  },
+  {
+    name: 'coupons',
+    methods: [
+      {
+        name: 'retrieve',
+        path: 'coupons/[0]',
+        method: 'get',
+        type: 'retrieveOne',
+      },
+      {
+        name: 'list',
+        path: 'coupons',
+        method: 'get',
+        type: 'retrieveAll',
+      },
+      {
+        name: 'create',
+        path: 'coupons',
+        method: 'post',
+        type: 'create',
+      },
+      {
+        name: 'update',
+        path: 'coupons/[0]',
         method: 'put',
         type: 'update',
       },
@@ -143,50 +190,121 @@ module.exports = [
         type: 'update',
       },
       {
-        name: 'cancel',
-        path: 'subscriptions/[0]',
-        method: 'delete',
-        type: 'delete',
+        name: 'start',
+        path: 'subscriptions/[0]/start',
+        method: 'post',
+        type: 'update',
+      },
+      {
+        name: 'end',
+        path: 'subscriptions/[0]/end',
+        method: 'post',
+        type: 'update',
       },
       {
         name: 'suspend',
-        path: 'subscriptions/[0]',
+        path: 'subscriptions/[0]/suspend',
         method: 'post',
         type: 'update',
       },
       {
         name: 'unsuspend',
-        path: 'subscriptions/[0]',
+        path: 'subscriptions/[0]/unsuspend',
         method: 'post',
         type: 'update',
       },
     ],
   },
   {
-    name: 'customers',
+    name: 'invoices',
     methods: [
       {
         name: 'retrieve',
-        path: 'customers/[0]',
+        path: 'invoices/[0]',
         method: 'get',
         type: 'retrieveOne',
       },
       {
         name: 'list',
-        path: 'customers',
+        path: 'invoices',
         method: 'get',
         type: 'retrieveAll',
       },
       {
         name: 'create',
-        path: 'customers',
+        path: 'invoices',
         method: 'post',
         type: 'create',
       },
       {
         name: 'update',
-        path: 'customers/[0]',
+        path: 'invoices/[0]',
         method: 'put',
+        type: 'update',
+      },
+      {
+        name: 'finalize',
+        path: 'invoices/[0]/finalize',
+        method: 'post',
+        type: 'update',
+      },
+      {
+        name: 'markUncollectible',
+        path: 'invoices/[0]/mark_uncollectible',
+        method: 'post',
+        type: 'update',
+      },
+      {
+        name: 'void',
+        path: 'invoices/[0]/void',
+        method: 'post',
+        type: 'update',
+      },
+      {
+        name: 'pay',
+        path: 'invoices/[0]/authorize',
+        method: 'post',
+        type: 'update',
+      },
+      {
+        name: 'send',
+        path: 'invoices/[0]/send',
+        method: 'post',
+        type: 'update',
+      },
+    ],
+  },
+  {
+    name: 'plans',
+    methods: [
+      {
+        name: 'retrieve',
+        path: 'plans/[0]',
+        method: 'get',
+        type: 'retrieveOne',
+      },
+      {
+        name: 'list',
+        path: 'plans',
+        method: 'get',
+        type: 'retrieveAll',
+      },
+      {
+        name: 'create',
+        path: 'plans',
+        method: 'post',
+        type: 'create',
+      },
+      {
+        name: 'update',
+        path: 'plans/[0]',
+        method: 'put',
+        type: 'update',
+      },
+      {
+        name: 'subscribe',
+        path: 'plans/[0]/subscription',
+        method: 'post',
         type: 'update',
       },
     ],
@@ -247,97 +365,119 @@ module.exports = [
         method: 'put',
         type: 'update',
       },
-      {
-        name: 'del',
-        path: 'tax_rates/[0]',
-        method: 'delete',
-        type: 'delete',
-      },
     ],
   },
   {
-    name: 'bank_accounts',
+    name: 'customers',
     methods: [
       {
         name: 'retrieve',
-        path: 'bank_accounts/[0]',
+        path: 'customers/[0]',
         method: 'get',
         type: 'retrieveOne',
       },
       {
         name: 'list',
-        path: 'bank_accounts',
+        path: 'customers',
         method: 'get',
         type: 'retrieveAll',
       },
       {
         name: 'create',
-        path: 'bank_accounts',
-        method: 'post',
-        type: 'create',
-      },
-      {
-        name: 'del',
-        path: 'bank_accounts/[0]',
-        method: 'delete',
-        type: 'delete',
-      },
-    ],
-  },
-  {
-    name: 'invoices',
-    methods: [
-      {
-        name: 'retrieve',
-        path: 'invoices/[0]',
-        method: 'get',
-        type: 'retrieveOne',
-      },
-      {
-        name: 'list',
-        path: 'invoices',
-        method: 'get',
-        type: 'retrieveAll',
-      },
-      {
-        name: 'create',
-        path: 'invoices',
+        path: 'customers',
         method: 'post',
         type: 'create',
       },
       {
         name: 'update',
-        path: 'invoices/[0]',
+        path: 'customers/[0]',
         method: 'put',
         type: 'update',
       },
       {
-        name: 'finalize',
-        path: 'invoices/[0]/finalize',
+        name: 'paymentMethods',
+        path: 'customers/[0]/payment_methods',
+        method: 'get',
+        type: 'retrieveOne',
+      },
+    ],
+  },
+  {
+    name: 'mandates',
+    methods: [
+      {
+        name: 'retrieve',
+        path: 'mandates/[0]',
+        method: 'get',
+        type: 'retrieveOne',
+      },
+      {
+        name: 'list',
+        path: 'mandates',
+        method: 'get',
+        type: 'retrieveAll',
+      },
+    ],
+  },
+  {
+    name: 'payment_methods',
+    methods: [
+      {
+        name: 'retrieve',
+        path: 'payment_methods/[0]',
+        method: 'get',
+        type: 'retrieveOne',
+      },
+      {
+        name: 'list',
+        path: 'payment_methods',
+        method: 'get',
+        type: 'retrieveAll',
+      },
+      {
+        name: 'del',
+        path: 'payment_methods/[0]',
+        method: 'delete',
+        type: 'delete',
+      },
+    ],
+  },
+  {
+    name: 'setup_intents',
+    methods: [
+      {
+        name: 'retrieve',
+        path: 'setup_intents/[0]',
+        method: 'get',
+        type: 'retrieveOne',
+      },
+      {
+        name: 'list',
+        path: 'setup_intents',
+        method: 'get',
+        type: 'retrieveAll',
+      },
+      {
+        name: 'create',
+        path: 'setup_intents',
         method: 'post',
+        type: 'create',
+      },
+      {
+        name: 'update',
+        path: 'setup_intents/[0]',
+        method: 'put',
         type: 'update',
       },
       {
-        name: 'pay',
-        path: 'invoices/[0]/pay',
-        method: 'post',
-        type: 'update',
+        name: 'del',
+        path: 'setup_intents/[0]',
+        method: 'delete',
+        type: 'delete',
       },
       {
-        name: 'send',
-        path: 'invoices/[0]/send',
-        method: 'post',
-        type: 'update',
-      },
-      {
-        name: 'markUncollectible',
-        path: 'invoices/[0]/mark-uncollectible',
-        method: 'post',
-        type: 'update',
-      },
-      {
-        name: 'void',
-        path: 'invoices/[0]/void',
+        name: 'cancel',
+        path: 'setup_intents/[0]/cancel',
         method: 'post',
         type: 'update',
       },
@@ -370,66 +510,43 @@ module.exports = [
         method: 'post',
         type: 'update',
       },
-    ],
-  },
-  {
-    name: 'setup_intents',
-    methods: [
       {
-        name: 'retrieve',
-        path: 'setup_intents/[0]',
-        method: 'get',
-        type: 'retrieveOne',
-      },
-      {
-        name: 'create',
-        path: 'setup_intents',
+        name: 'refund',
+        path: 'loans/[0]/refund',
         method: 'post',
-        type: 'create',
-      },
-      {
-        name: 'update',
-        path: 'setup_intents/[0]',
-        method: 'put',
         type: 'update',
       },
-      {
-        name: 'del',
-        path: 'setup_intents/[0]',
-        method: 'delete',
-        type: 'delete',
-      },
     ],
   },
   {
-    name: 'payment_methods',
+    name: 'installments',
     methods: [
       {
         name: 'retrieve',
-        path: 'payment_methods/[0]',
+        path: 'installments/[0]',
         method: 'get',
         type: 'retrieveOne',
       },
       {
-        name: 'list',
-        path: 'payment_methods',
+        name: 'authorize',
+        path: 'installments/[0]/authorize',
+        method: 'post',
+        type: 'update',
+      },
+    ],
+  },
+  {
+    name: 'balance',
+    methods: [
+      {
+        name: 'retrieve',
+        path: 'balance',
         method: 'get',
         type: 'retrieveAll',
       },
-    ],
-  },
-  {
-    name: 'events',
-    methods: [
       {
-        name: 'retrieve',
-        path: 'events/[0]',
-        method: 'get',
-        type: 'retrieveOne',
-      },
-      {
-        name: 'list',
-        path: 'events',
+        name: 'overview',
+        path: 'balance/overview',
         method: 'get',
         type: 'retrieveAll',
       },
@@ -464,6 +581,143 @@ module.exports = [
       {
         name: 'list',
         path: 'payouts',
+        method: 'get',
+        type: 'retrieveAll',
+      },
+    ],
+  },
+  {
+    name: 'bank_accounts',
+    methods: [
+      {
+        name: 'retrieve',
+        path: 'bank_accounts/[0]',
+        method: 'get',
+        type: 'retrieveOne',
+      },
+      {
+        name: 'list',
+        path: 'bank_accounts',
+        method: 'get',
+        type: 'retrieveAll',
+      },
+      {
+        name: 'create',
+        path: 'bank_accounts',
+        method: 'post',
+        type: 'create',
+      },
+      {
+        name: 'del',
+        path: 'bank_accounts/[0]',
+        method: 'delete',
+        type: 'delete',
+      },
+    ],
+  },
+  {
+    name: 'disputes',
+    methods: [
+      {
+        name: 'retrieve',
+        path: 'disputes/[0]',
+        method: 'get',
+        type: 'retrieveOne',
+      },
+      {
+        name: 'list',
+        path: 'disputes',
+        method: 'get',
+        type: 'retrieveAll',
+      },
+      {
+        name: 'upload',
+        path: 'disputes/[0]/upload',
+        method: 'post',
+        type: 'update',
+      },
+      {
+        name: 'confirm',
+        path: 'disputes/[0]/confirm',
+        method: 'post',
+        type: 'update',
+      },
+    ],
+  },
+  {
+    name: 'events',
+    methods: [
+      {
+        name: 'retrieve',
+        path: 'events/[0]',
+        method: 'get',
+        type: 'retrieveOne',
+      },
+      {
+        name: 'list',
+        path: 'events',
+        method: 'get',
+        type: 'retrieveAll',
+      },
+    ],
+  },
+  {
+    name: 'webhooks',
+    methods: [
+      {
+        name: 'retrieve',
+        path: 'webhooks/[0]',
+        method: 'get',
+        type: 'retrieveOne',
+      },
+      {
+        name: 'list',
+        path: 'webhooks',
+        method: 'get',
+        type: 'retrieveAll',
+      },
+      {
+        name: 'create',
+        path: 'webhooks',
+        method: 'post',
+        type: 'create',
+      },
+      {
+        name: 'del',
+        path: 'webhooks/[0]',
+        method: 'delete',
+        type: 'delete',
+      },
+    ],
+  },
+  {
+    name: 'webhook_attempts',
+    methods: [
+      {
+        name: 'list',
+        path: 'webhook_attempts',
+        method: 'get',
+        type: 'retrieveAll',
+      },
+    ],
+  },
+  {
+    name: 'banks',
+    methods: [
+      {
+        name: 'list',
+        path: 'banks',
+        method: 'get',
+        type: 'retrieveAll',
+      },
+    ],
+  },
+  {
+    name: 'currencies',
+    methods: [
+      {
+        name: 'list',
+        path: 'currencies',
         method: 'get',
         type: 'retrieveAll',
       },
