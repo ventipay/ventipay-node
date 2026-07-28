@@ -90,6 +90,14 @@ Estas opciones corresponden a los *query params* o *body params* encontrados en 
 
 | [payouts](https://docs.ventipay.com/reference/payouts) | `retrieve`, `list` |
 
+### API Tesorería
+| Recurso | Métodos |
+| ------ | ------ |
+| [programs](https://docs.ventipay.com/reference/programs) | `retrieve`, `list`, `create`, `update` |
+| [financial_accounts](https://docs.ventipay.com/reference/financial_accounts) | `retrieve`, `list`, `create`, `update`, `repaymentCheckout` |
+| [account_entries](https://docs.ventipay.com/reference/account_entries) | `list` |
+| [statements](https://docs.ventipay.com/reference/statements) | `retrieve`, `list`, `repaymentCheckout` |
+
 # Promesas
 
 Los métodos provistos por la librería retornan siempre una Promesa (`Promise`), por lo que puedes utilizar `async/await` o `then/catch` según tu preferencia.

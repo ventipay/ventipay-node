@@ -469,4 +469,102 @@ module.exports = [
       },
     ],
   },
+  {
+    name: 'programs',
+    methods: [
+      {
+        name: 'retrieve',
+        path: 'programs/[0]',
+        method: 'get',
+        type: 'retrieveOne',
+      },
+      {
+        name: 'list',
+        path: 'programs',
+        method: 'get',
+        type: 'retrieveAll',
+      },
+      {
+        name: 'create',
+        path: 'programs',
+        method: 'post',
+        type: 'create',
+      },
+      {
+        name: 'update',
+        path: 'programs/[0]',
+        method: 'put',
+        type: 'update',
+      },
+    ],
+  },
+  {
+    name: 'financial_accounts',
+    methods: [
+      {
+        name: 'retrieve',
+        path: 'financial_accounts/[0]',
+        method: 'get',
+        type: 'retrieveOne',
+      },
+      {
+        name: 'list',
+        path: 'financial_accounts',
+        method: 'get',
+        type: 'retrieveAll',
+      },
+      {
+        name: 'create',
+        path: 'financial_accounts',
+        method: 'post',
+        type: 'create',
+      },
+      {
+        name: 'update',
+        path: 'financial_accounts/[0]',
+        method: 'put',
+        type: 'update',
+      },
+      {
+        name: 'repaymentCheckout',
+        path: 'financial_accounts/[0]/repayment_checkouts',
+        method: 'post',
+        type: 'update',
+      },
+    ],
+  },
+  {
+    name: 'account_entries',
+    methods: [
+      {
+        name: 'list',
+        path: 'account_entries',
+        method: 'get',
+        type: 'retrieveAll',
+      },
+    ],
+  },
+  {
+    name: 'statements',
+    methods: [
+      {
+        name: 'retrieve',
+        path: 'statements/[0]',
+        method: 'get',
+        type: 'retrieveOne',
+      },
+      {
+        name: 'list',
+        path: 'statements',
+        method: 'get',
+        type: 'retrieveAll',
+      },
+      {
+        name: 'repaymentCheckout',
+        path: 'statements/[0]/repayment_checkouts',
+        method: 'post',
+        type: 'update',
+      },
+    ],
+  },
 ];
