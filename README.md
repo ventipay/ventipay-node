@@ -45,58 +45,8 @@ Usualmente los métodos que obtienen o actualizan un recurso (`create`, `update`
 Estas opciones corresponden a los *query params* o *body params* encontrados en la documentación de la API.
 
 ## Listado de recursos
-### API Pagos
-| Recurso | Métodos |
-| ------ | ------ |
-| [checkouts](https://docs.ventipay.com/reference/checkouts) | `retrieve`, `list`, `create`, `refund` |
-| [payments](https://docs.ventipay.com/reference/payments) | `retrieve`, `list`, `create`, `update`, `refund`, `capture` |
-| [refunds](https://docs.ventipay.com/reference/refunds) | `retrieve`, `list` |
 
-### API Préstamos
-| Recurso | Métodos |
-| ------ | ------ |
-| [loans](https://docs.ventipay.com/reference/loans) | `retrieve`, `list`, `create`, `update`, `refund`, `capture` |
-
-### API Suscripciones
-| Recurso | Métodos |
-| ------ | ------ |
-| [subscriptions](https://docs.ventipay.com/reference/subscriptions) | `retrieve`, `list`, `create`, `update`, `cancel`, `suspend`, `unsuspend` |
-| [invoices](https://docs.ventipay.com/reference/invoices) | `retrieve`, `list`, `create`, `update`, `finalize`, `pay`, `send`, `markUncollectible`, `void` |
-| [products](https://docs.ventipay.com/reference/products) | `retrieve`, `list`, `create`, `update` |
-| [tax_rates](https://docs.ventipay.com/reference/tax_rates) | `retrieve`, `list`, `create`, `update` |
-| [plans](https://docs.ventipay.com/reference/plans) | `retrieve`, `list`, `create`, `update` |
-
-### API Clientes
-| Recurso | Métodos |
-| ------ | ------ |
-| [customers](https://docs.ventipay.com/reference/customers) | `retrieve`, `list`, `create`, `update` |
-
-### API Métodos de pago
-| Recurso | Métodos |
-| ------ | ------ |
-| [payment_methods](https://docs.ventipay.com/reference/payment_methods) | `retrieve`, `list` |
-| [setup_intents](https://docs.ventipay.com/reference/setup_intents) | `retrieve`, `create`, `update`, `del` |
-
-### API Eventos
-| Recurso | Métodos |
-| ------ | ------ |
-| [events](https://docs.ventipay.com/reference/events) | `retrieve`, `list` |
-
-### API Finanzas
-| Recurso | Métodos |
-| ------ | ------ |
-| [balance_transactions](https://docs.ventipay.com/reference/balance_transactions) | `retrieve`, `list` |
-| [bank_accounts](https://docs.ventipay.com/reference/bank_accounts) | `retrieve`, `list`, `create`, `del` |
-
-| [payouts](https://docs.ventipay.com/reference/payouts) | `retrieve`, `list` |
-
-### API Tesorería
-| Recurso | Métodos |
-| ------ | ------ |
-| [programs](https://docs.ventipay.com/reference/programs) | `retrieve`, `list`, `create`, `update` |
-| [financial_accounts](https://docs.ventipay.com/reference/financial_accounts) | `retrieve`, `list`, `create`, `update`, `repaymentCheckout` |
-| [account_entries](https://docs.ventipay.com/reference/account_entries) | `list` |
-| [statements](https://docs.ventipay.com/reference/statements) | `retrieve`, `list`, `repaymentCheckout` |
+La librería expone un recurso por cada objeto de la API REST, con métodos que siguen las acciones de la [Referencia de API](https://docs.ventipay.com/reference) (`retrieve`, `list`, `create`, `update`, `del`, y las acciones propias de cada recurso). Los recursos y métodos disponibles se definen en [`src/resources.js`](src/resources.js).
 
 # Promesas
 
