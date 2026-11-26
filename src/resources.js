@@ -150,13 +150,13 @@ module.exports = [
       },
       {
         name: 'suspend',
-        path: 'subscriptions/[0]',
+        path: 'subscriptions/[0]/suspend',
         method: 'post',
         type: 'update',
       },
       {
         name: 'unsuspend',
-        path: 'subscriptions/[0]',
+        path: 'subscriptions/[0]/unsuspend',
         method: 'post',
         type: 'update',
       },
@@ -247,12 +247,6 @@ module.exports = [
         method: 'put',
         type: 'update',
       },
-      {
-        name: 'del',
-        path: 'tax_rates/[0]',
-        method: 'delete',
-        type: 'delete',
-      },
     ],
   },
   {
@@ -331,7 +325,7 @@ module.exports = [
       },
       {
         name: 'markUncollectible',
-        path: 'invoices/[0]/mark-uncollectible',
+        path: 'invoices/[0]/mark_uncollectible',
         method: 'post',
         type: 'update',
       },

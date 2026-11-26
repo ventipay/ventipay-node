@@ -33,7 +33,7 @@ function VentiPay(apiKey, config = {}) {
    * Default API config
    */
   const api = axios.create({
-    baseURL: `${config.schema || DEFAULT_SCHEMA}//${config.host || DEFAULT_HOST}:${config.host || DEFAULT_PORT}${DEFAULT_BASE_PATH}`,
+    baseURL: `${config.schema || DEFAULT_SCHEMA}//${config.host || DEFAULT_HOST}:${config.port || DEFAULT_PORT}${DEFAULT_BASE_PATH}`,
     headers: {
       'User-Agent': `VentiPaySDK/nodejs/${VERSION}`,
     },
@@ -94,9 +94,15 @@ function VentiPay(apiKey, config = {}) {
               throw new Error();
             })
             .catch((error) => {
-              const errorType = error && error.response && error.response.data && error.response.data.error && error.response.data.error.type;
-              const errorCode = error && error.response && error.response.data && error.response.data.error && error.response.data.error.code;
-              return reject(errors.generate({ type: errorType, code: errorCode }));
+              const response = error && error.response;
+              const apiError = (response && response.data && response.data.error) || {};
+              return reject(errors.generate({
+                type: apiError.type,
+                code: apiError.code,
+                message: apiError.message,
+                status: response && response.status,
+                requestId: response && response.headers && response.headers['x-request-id'],
+              }));
             });
         });
       };
