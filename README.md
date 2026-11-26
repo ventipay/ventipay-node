@@ -30,7 +30,7 @@ La librería ahora te entrega un listado de recursos de la API con sus respectiv
 ### Ejemplo
 ```javascript
 // Llamando al método retrieve del recurso checkouts y pasando 2 parámetros.
-const checkout = ventipay.checkouts.retrieve('chk_KaIq81HaHvaPq91c8FaK1ua6R', {
+const checkout = await ventipay.checkouts.retrieve('chk_KaIq81HaHvaPq91c8FaK1ua6R', {
     expand: ['customer'],
 });
 
@@ -51,6 +51,23 @@ La librería expone un recurso por cada objeto de la API REST, con métodos que 
 # Promesas
 
 Los métodos provistos por la librería retornan siempre una Promesa (`Promise`), por lo que puedes utilizar `async/await` o `then/catch` según tu preferencia.
+
+# Errores
+
+Cuando la API responde con un error, la promesa se rechaza con una instancia de `VentiPayError` que incluye los datos de la respuesta:
+
+```javascript
+try {
+  await ventipay.payments.retrieve('pay_inexistente');
+} catch (error) {
+  console.log(error.name); // 'VentiPayNotFoundError'
+  console.log(error.type); // 'invalid_request_error'
+  console.log(error.code); // 'not_found'
+  console.log(error.message); // Mensaje descriptivo entregado por la API
+  console.log(error.status); // 404
+  console.log(error.requestId); // ID de la solicitud, útil al contactar a soporte
+}
+```
 
 # Versionamiento
 

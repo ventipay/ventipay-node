@@ -1,34 +1,45 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable max-classes-per-file */
 class VentiPayError extends Error {
-  constructor(...params) {
-    super(params);
+  constructor(message, {
+    type, code, status, requestId,
+  } = {}) {
+    super(message || 'An error occurred while communicating with the Venti API');
     this.name = this.constructor.name;
+    this.type = type;
+    this.code = code;
+    this.status = status;
+    this.requestId = requestId;
   }
 
-  static generate({ type, code } = {}) {
+  static generate({
+    type, code, message, status, requestId,
+  } = {}) {
+    const meta = {
+      type, code, status, requestId,
+    };
     if (type === 'authentication_error') {
-      return new VentiPayAuthError();
+      return new VentiPayAuthError(message, meta);
     }
     if (type === 'charge_error') {
-      return new VentiPayChargeError();
+      return new VentiPayChargeError(message, meta);
     }
     if (type === 'invalid_request_error') {
       if (code === 'not_found') {
-        return new VentiPayNotFoundError();
+        return new VentiPayNotFoundError(message, meta);
       }
-      return new VentiPayInvalidError();
+      return new VentiPayInvalidError(message, meta);
     }
     if (type === 'request_error') {
-      return new VentiPayRequestError();
+      return new VentiPayRequestError(message, meta);
     }
     if (type === 'idempotency_error') {
-      return new VentiPayIdempotencyError();
+      return new VentiPayIdempotencyError(message, meta);
     }
     if (type === 'rate_limit_error') {
-      return new VentiPayRateLimitError();
+      return new VentiPayRateLimitError(message, meta);
     }
-    return new VentiPayUnknownError();
+    return new VentiPayUnknownError(message, meta);
   }
 }
 
